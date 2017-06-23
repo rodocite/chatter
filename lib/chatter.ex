@@ -10,7 +10,7 @@ defmodule Chatter do
     children = [
       supervisor(Chatter.Repo, []),
       supervisor(Chatter.Endpoint, []),
-      supervisor(Chatter.Presence)
+      supervisor(Chatter.Presence, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
