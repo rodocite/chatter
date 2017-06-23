@@ -8,12 +8,9 @@ defmodule Chatter do
 
     # Define workers and child supervisors to be supervised
     children = [
-      # Start the Ecto repository
       supervisor(Chatter.Repo, []),
-      # Start the endpoint when the application starts
       supervisor(Chatter.Endpoint, []),
-      # Start your own worker by calling: Chatter.Worker.start_link(arg1, arg2, arg3)
-      # worker(Chatter.Worker, [arg1, arg2, arg3]),
+      supervisor(Chatter.Presence)
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
