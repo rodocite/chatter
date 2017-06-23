@@ -59,10 +59,12 @@ const render = presences => {
   const messageInput = document.getElementById('NewMessage')
   
   messageInput.addEventListener('keypress', e => {
-    e.keyCode === 13 
-      ? room.push('message:new', messageInput.value)
-      : messageInput.value = ''
+    if (e.keyCode === 13) {
+      room.push('message:new', messageInput.value)
+      messageInput.value = ''
+    }
   })
+
   const messageList = document.getElementById('MessageList')
 
   const renderMessage = message => {
