@@ -2,7 +2,7 @@ defmodule Chatter.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", Chatter.RoomChannel
+  channel "room:*", Chatter.RoomChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
