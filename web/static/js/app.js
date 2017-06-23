@@ -54,3 +54,12 @@ const render = presences => {
   })
 
   room.join()
+
+  // Chat
+  const messageInput = document.getElementById('NewMessage')
+  
+  messageInput.addEventListener('keypress', e => {
+    e.keyCode === 13 
+      ? room.push('message:new', messageInput.value)
+      : messageInput.value = ''
+  })
