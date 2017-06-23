@@ -3,6 +3,7 @@ defmodule Chatter.RoomChannel do
   alias Chatter.Presence
 
   def join("room:lobby", _, socket) do
+    Process.flag(:trap_exit, true)
     send(self, :after_join)
     {:ok, socket}
   end
