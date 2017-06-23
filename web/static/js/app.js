@@ -63,3 +63,17 @@ const render = presences => {
       ? room.push('message:new', messageInput.value)
       : messageInput.value = ''
   })
+  const messageList = document.getElementById('MessageList')
+
+  const renderMessage = message => {
+    const messageElement = document.createElement('li')
+
+    messageElement.innerHTML = 
+      `
+        <b>${message.user}</b>
+        <i>${formatTimestamp(message.timestamp)}</i>
+        <p>${message.body}</p>
+      `
+  }
+
+  room.on('message:new', message => renderMessage(message))
